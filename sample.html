@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<form action="" method="post">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <head>
+    <meta charset=“UFT-8”>
+    <title>植物図鑑の検索エンジン</title>
+
+    <style>
+    body {
+      background: #7fffd4;
+      font-family: Meiryo;
+    }
+    div {
+      //background: #ffffff;
+      text-align: center;
+    }
+  　</style>
+  </head>
+
+  <body>
+    <div>
+      <h1>なんかすごい植物図鑑</h1>
+      <?php
+      $comment = $_GET[‘comment’];
+      echo $comment;
+      ?>
+      <label class="label" for="name">凡例名</label>
+      <input id="name" type="text" name="name">
+      <br><br>
+
+      <img src="http://localhost/map_test.png" usemap="#Map" width="500" height="416" alt="マップ">
+      <map name="Map">
+        <area shape="rect" coords="0,0,220,165" href="http://localhost/sampleOki.html" alt="隠岐">
+        <area shape="rect" coords="375,10,480,95" href="http://localhost/sampleTo.html" alt="松江">
+        <area shape="rect" coords="0,230,220,380" href="http://localhost/sampleTo.html" alt="西">
+      </map>
+      <br><br>
+      <label class="label" for="name">優占種<select name="優占種">
+        <option value="a">T1(高木層)</option>
+        <option value="a">T2(亜高木層)</option>
+        <option value="a">S1(低木層)</option>
+      </select>
+      <br><br>
+      <label class="label" for="message">植物名</label>
+      <textarea rows="1" id="message" placeholder="植物名を入力ください" name="comment"></textarea>
+
+      <p>植物検索(複数検索)<br>
+        <input type="checkbox" name="q1" value="その1"> T1
+        <input type="checkbox" name="q1" value="その2"> T2
+        <input type="checkbox" name="q1" value="その3"> S1
+      </p>
+      <form method="post" action="example.cgi">
+        <p>デフォルト<br>
+          <input type="radio" name="q1" value="はい"> はい
+          <input type="radio" name="q1" value="いいえ"> いいえ
+        </p>
+        <h1>フォームデータの送信</h1>
+        <form action = “http://localhost/sample.php” method = “get”>
+          <input type = “text” name =“comment“><br/>
+        <input type="submit"value =検索>
+        <br><br>
+        <a href="http://localhost/sampleTo.html">ページ遷移用</a>
+      </form>
+    </div>
+  </body>
+<html>
